@@ -12,4 +12,10 @@ class Task {
         this.title = title;
         this.completed = completed
     }
+
+    // Returning a new Task with the flipped value
+    toggle() {
+        return new Task(this.id, this.title, !this.completed);
+        
+    }
 }
