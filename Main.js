@@ -48,5 +48,19 @@ async function loadTasks() {
     statusMessage.textContent = "Loading tasks...";
     loadTaskBtn.disabled = true;
 
+    try {
+        const rawTasks = await fetchTasks();
+
+        //JSON round trip
+        const json = JSON.stringify(rawTasks);
+        const parsed = JSON.parse(json);
+
+        // Converting plain objects into Tasks
+        const tasks = parsed.map(
+            (item) => new Task(item.id, item.title, item.completed)
+        );
+
+    }
+
 
 }
