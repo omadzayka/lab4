@@ -60,7 +60,15 @@ async function loadTasks() {
             (item) => new Task(item.id, item.title, item.completed)
         );
 
-    }
-
-
+       manager.setTasks(tasks);
+       renderTasks();
+       statusMessage.textContent = "";
+    } catch  (error) {
+      statusMessage.classList.add("error");
+      statusMessage.textContent = "Failed to load tasks" + error.message;
+    } finally {
+        loadTasksBtn.disabled = false;
+      }
 }
+
+loadTaskBtn.addEventListener("click", loadTasks);
