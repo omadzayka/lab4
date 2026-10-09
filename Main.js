@@ -42,4 +42,11 @@ function renderTasks() {
     taskList.appendChild(taskDiv);
   });
 }
- 
+ // Loading
+async function loadTasks() {
+    statusMessage.classList.remove("error");
+    statusMessage.textContent = "Loading tasks...";
+    loadTaskBtn.disabled = true;
+
+
+}
