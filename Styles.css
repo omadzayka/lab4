@@ -23,3 +23,12 @@ body {
     border-radius: 4px;
 }
 
+.task span {
+    flex: 1;
+
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
