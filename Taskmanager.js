@@ -16,6 +16,13 @@ class Task {
     // Returning a new Task with the flipped value
     toggle() {
         return new Task(this.id, this.title, !this.completed);
-        
     }
+}
+
+// Task Manager 
+class TaskManager{
+    constructor() {
+        this.tasks = [];
+    }
+    
 }
