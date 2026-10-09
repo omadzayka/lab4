@@ -14,3 +14,12 @@ body {
     color: #c0396b;
 }
 
+.task  {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
