@@ -7,8 +7,39 @@ const manager =TaskManager();
 
 // Rendering
 function renderTasks() {
-    // Cleaning the old list
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
+  // Clear the old list
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+ 
+  manager.tasks.forEach((task) => {
+    const taskDiv = document.createElement("div");
+    taskDiv.classList.add("task");
+    if (task.completed) {
+      taskDiv.classList.add("completed");
     }
+ 
+    const titleSpan = document.createElement("span");
+    titleSpan.textContent = task.title;
+ 
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "Toggle";
+    toggleBtn.addEventListener("click", () => {
+      manager.toggleTask(task.id);
+      renderTasks();
+    });
+ 
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      manager.removeTask(task.id);
+      renderTasks();
+    });
+ 
+    taskDiv.appendChild(titleSpan);
+    taskDiv.appendChild(toggleBtn);
+    taskDiv.appendChild(deleteBtn);
+    taskList.appendChild(taskDiv);
+  });
 }
+ 
