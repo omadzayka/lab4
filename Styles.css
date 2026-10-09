@@ -5,3 +5,12 @@ body {
     padding: 0 1rem;
 }
 
+#statusMessage {
+    min-height: 1.2em;
+    color: #555;
+}
+
+#statusMessage.error {
+    color: #c0396b;
+}
+
